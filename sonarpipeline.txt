@@ -8,18 +8,18 @@ pipeline
            {
              steps
             {
-                git branch: 'master', url: 'https://github.com/tiwariak1992/maven-project.git'
+                git branch: 'master', url:'https://github.com/tiwariak1992/maven-project.git'
             }
             }
             stage ('build && SonarQube analysis') 
                 {
                steps 
                {
-                   withSonarQubeEnv('sonar') 
+                   withSonarQubeEnv(credentialsid:'sonarqube') 
                    {
-                       withMaven(maven : 'LocalMaven') 
+                       withMaven(jdk:'local-jdk-1.8',maven:'LocalMaven') 
                        {
-                           sh 'mvn clean package sonar:sonar'
+                           sh 'clean mvn install sonar:sonar'
 
                        }
                    }

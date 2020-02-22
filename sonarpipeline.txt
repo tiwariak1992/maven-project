@@ -1,0 +1,29 @@
+pipeline
+{
+    agent any
+    {
+        stages
+        {
+            stage('scm checkout')
+            {
+                git branch: 'master', url: 'https://github.com/tiwariak1992/maven-project.git'
+            }
+            stage ('build && SonarQube analysis') 
+                {
+               steps 
+               {
+                   withSonarQubeEnv('sonar') 
+                   {
+                       withMaven(maven : 'LocalMaven') 
+                       {
+                           sh 'mvn clean package sonar:sonar'
+
+                       }
+                   }
+
+               }
+              
+
+        }
+    }
+

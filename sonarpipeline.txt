@@ -19,7 +19,7 @@ pipeline
                       {
                        withMaven(jdk:'local-jdk-1.8',maven:'localmaven') 
                           {
-                          sh 'mvn clean package sonar:sonar'
+                             sh 'clean mvn install sonar:sonar'
 
                            }
                        }

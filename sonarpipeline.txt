@@ -17,7 +17,7 @@ pipeline
                    {
                    withSonarQubeEnv('sonarqube') 
                       {
-                       withMaven(jdk:'local-jdk-1.8',maven:'LocalMaven') 
+                       withMaven(jdk:'local-jdk-1.8',maven:'localmaven') 
                           {
                           sh 'mvn clean package sonar:sonar'
 

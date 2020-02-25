@@ -3,18 +3,11 @@ pipeline
   agent any
   stages
   {
-    stage('scm checkout')
-    {
-      steps
-      {
-        git'https://github.com/tiwariak1992/maven-project.git'
-      }
-    }
-    stage('maven compile')
+    stage('maven compile & install')
     {
       parallel
       {
-        stage('maven package goal')
+        stage('maven compile')
         {
           steps
           {
@@ -23,10 +16,12 @@ pipeline
         }
         stage('maven install')
         {
-          sh 'mvn install'
+          steps
+          {
+            sh 'mvn install'
+          }
         }
       }
     }
   }
-  failfast:true
 }

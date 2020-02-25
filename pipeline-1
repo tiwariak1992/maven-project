@@ -9,14 +9,14 @@ pipeline
       {
         steps
         {
-          branch:'master',url:'https://github.com/tiwariak1992/maven-project.git'
+          git branch:'master',url:'https://github.com/tiwariak1992/maven-project.git'
         }
       }
       stage('scm checkout cicdpipeline')
       {
         steps
         {
-          branch:'ci-cd-pipeline',url:'https://github.com/tiwariak1992/maven-project.git'
+          git branch:'ci-cd-pipeline',url:'https://github.com/tiwariak1992/maven-project.git'
         }
       }
     }

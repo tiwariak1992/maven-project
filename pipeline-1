@@ -3,20 +3,23 @@ pipeline
   agent any
   stages
   {
-    parallel
+    stage('git checkuot')
     {
-      stage('scm checkout master')
+      parallel
       {
-        steps
+        stage('scm checkout master')
         {
-          git branch:'master',url:'https://github.com/tiwariak1992/maven-project.git'
+          steps
+          {
+            git branch:'master',url:'https://github.com/tiwariak1992/maven-project.git'
+          }
         }
-      }
-      stage('scm checkout cicdpipeline')
-      {
-        steps
+        stage('scm checkout cicdpipeline')
         {
-          git branch:'ci-cd-pipeline',url:'https://github.com/tiwariak1992/maven-project.git'
+          steps
+          {
+            git branch:'ci-cd-pipeline',url:'https://github.com/tiwariak1992/maven-project.git'  
+          }
         }
       }
     }

@@ -39,7 +39,7 @@ pipeline
                     }
                 }
             }
-            stage(ci-cd pipeline with ansible)
+            stage('ci-cd pipeline with ansible')
             {
                 steps
                 {

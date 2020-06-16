@@ -19,15 +19,16 @@ pipeline
                     sh 'mvn compile'
                 }
             }
+         }
             stage('test')
             {
                 steps
-                {
-                withMaven(jdk:'local-jenkins',maven:'localmaven')
-                {
+                  {
+                   withMaven(jdk:'local-jenkins',maven:'localmaven')
+                   {
                     sh 'mvn test'
-                }
-                }
+                   }
+                  }
             }
             stage('install')
             {
@@ -46,6 +47,6 @@ pipeline
                     sshPublisher(publishers: [sshPublisherDesc(configName: 'ansible', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'ansible-playbook /etc/ansible/playbooks/deploy.yml', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '//etc//ansible//playbooks', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'webapp/target/*.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
                 }
             }
-        }
+        
     }
 }

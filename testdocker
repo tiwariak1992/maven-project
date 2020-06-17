@@ -10,5 +10,12 @@ pipeline
                 git 'https://github.com/tiwariak1992/maven-project.git'
             }
         }
+        stage('clean package')
+        {
+            steps
+            {
+                sh label: '', script: 'mvn clean package'
+            }
+        }
     }
 }

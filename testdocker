@@ -17,5 +17,12 @@ pipeline
                 sh label: '', script: 'mvn clean package'
             }
         }
+        stage('build your docker image')
+        {
+            steps
+            {
+                sh 'docker build -t tiwariak1992/amit-app:1.0.0.'
+            }
+        }
     }
 }

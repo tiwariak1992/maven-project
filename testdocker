@@ -21,7 +21,7 @@ pipeline
         {
             steps
             {
-                sh 'docker build -t tiwariak1992/amit-app:1.0.0.'
+                sh 'docker build -t tiwariak1992/amit-app:1.0.0'
             }
         }
     }

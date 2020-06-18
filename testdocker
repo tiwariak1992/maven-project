@@ -21,7 +21,7 @@ pipeline
         {
             steps
             {
-                sh 'docker build -t ubuntu:latest'
+                sh 'docker build -t tiwariak1992/my-app:01'
             }
         }
     }

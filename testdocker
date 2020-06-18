@@ -10,6 +10,14 @@ pipeline
                 git 'https://github.com/tiwariak1992/maven-project.git'
             }
         }
+        stage('checkout to different branch')
+        {
+            steps
+            {
+            sh'git branch -r'
+            sh'git checkout master'
+            }
+        }
         stage('clean package')
         {
             steps
@@ -21,8 +29,10 @@ pipeline
         {
             steps
             {
-                sh 'docker build -t tiwariak1992/my-app:01.'
+                sh 'docker build -t tiwariak1992/amit-app:01'
             }
         }
+        
+        
     }
 }

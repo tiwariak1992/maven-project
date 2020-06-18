@@ -29,7 +29,7 @@ pipeline
         {
             steps
             {
-                sh 'docker build -t tiwariak1992/amit-app:01'
+                sh 'docker build -t tiwariak1992/tomcat:01'
             }
         }
         
